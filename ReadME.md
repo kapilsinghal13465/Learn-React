@@ -1,0 +1,1 @@
+#1 React Elements are object and render converts them to HTML.
