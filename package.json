@@ -1,0 +1,29 @@
+{
+  "name": "learn-react",
+  "version": "1.0.0",
+  "description": "This is learn react by kapil",
+  "homepage": "https://github.com/kapilsinghal13465/Learn-React#readme",
+  "bugs": {
+    "url": "https://github.com/kapilsinghal13465/Learn-React/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kapilsinghal13465/Learn-React.git"
+  },
+  "license": "ISC",
+  "author": "Kapil Singhal",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "browserslist": [
+    "last 10 version"
+  ]
+}

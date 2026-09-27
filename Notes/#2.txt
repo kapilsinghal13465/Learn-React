@@ -1,4 +1,6 @@
-#1 React Elements are object and render converts them to HTML.
+^ caret will upgrate minor version automatically
+~ tilde will upgrate to major version automatically
+like npm - install the package and there is npx - execute an package
 
 #2 Parcel 
 - Dev build
@@ -18,3 +20,5 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+
+browserslist npm package - configure all the browsers our app can run
