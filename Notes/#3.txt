@@ -1,0 +1,23 @@
+npm start - npm run start
+JSX -> is not HTML is js -> HTML like or XML Syntax
+JSX code is transpiled  before it reaches JS Engine - Parcel - Babel
+JSX => Babel Tranpilesit to React.createElement => Object => HTMLElement(render)
+JSX -> Attributes are written in camel-case
+
+Component Composition -> Component inside Component
+const Title = () => <h1>this is heading</h1>;
+const HeadComp = () => {
+    return (
+        <div id='container'>
+        <Title/>
+        <div>This is the body</div>
+        </div>
+    )
+}
+
+we can calla comp like -> 
+{Title()}
+<Title /> 
+<Title></Title>
+
+JSX do the sanitisation automatically - prevent Xss attacks
