@@ -1,0 +1,3 @@
+-props are the arugument passed the component (React function)
+- config driven ui
+- not using key (not acceptable) use index as key in map loop (acceptable but bad) unique key (best practice)
