@@ -57,3 +57,28 @@ Reconcilation Algorithm (React Fiber) - React 16
 
     Diff Algorithm
     Virtual Dom - its an reprsentation of Real Dom
+
+#6 Micro-Services and Mono-lithic architecture
+    -Microservices 
+        - Every service has its own responsibilty
+        
+Shimmer UI - fake page cards instead of loading screen
+
+Older UX -> Load - Wait API Response - Render
+Better UX -> Load - Render - API - Render
+
+whenever state update . react rerender the reconsilation algorithm
+
+#7
+without depandency array the =>  useEffect will called after every render
+    useEffect(()=> {})
+
+with empty depandency array => useEffect will be called once when comp loads
+    useEffect(()=> {}, [])
+
+with depandency array =>  useEffect will be called once when comp loads and when depandency updates
+    useEffect(()=> {}, [isLogin])
+
+
+
+
