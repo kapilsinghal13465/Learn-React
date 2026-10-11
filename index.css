@@ -1,3 +1,4 @@
+@import "tailwindcss";
 .header {
     display: flex;
     border: 1px solid #f0f0f0;
@@ -46,7 +47,39 @@ border: 1px solid #f0f0f0;
     width: 100%;
 }
 
+.filter {
+     margin: 10px;
+    display: flex;
+}
+
 .filter-btn {
-    margin: 10px;
+    margin: 0px 5px;
     cursor: pointer;
+}
+
+.shim-container {
+    height: 500px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.shim-card {
+     margin: 1px;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(255, 251, 251);
+}
+
+.login-btn {
+    margin: 15px 20px;
+    width: 80px;
+    height: 30px;
+}
+
+.user-card {
+     margin: 15px 20px;
+     border: 1px solid black;
 }
