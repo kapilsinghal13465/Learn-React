@@ -1,34 +1,43 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
     const [isLogin, setIsLogin] = useState(true);
     const isOnlineStatus = useOnlineStatus();
-
-    return (<div className='header'>
-        <img className='logo'  src={LOGO_URL} alt='app-logo'/>
-        <ul>
-            <li>
+    const  {loggedInUser} = useContext(UserContext)
+    console.log("loggedInUser", loggedInUser)
+    return (<div className='flex justify-between bg-pink-100 shadow-lg m-2'>
+        <div className="logo-contianer">
+        <img className='w-56'  src={LOGO_URL} alt='app-logo'/>
+        </div>
+        <div className="flex items-center">
+        <ul className="flex p-4 m-4 ">
+            <li className="px-4">
                 Online Status: {isOnlineStatus ? '🫱🏻‍🫲🏻': '⭕'}
             </li>
-            <li>
+            <li className="px-4">
                 <Link to={'/'}>HOME</Link>
             </li>
-            <li>
+            <li className="px-4">
                 <Link to={'about'}>About Us</Link>
             </li>
-            <li>
+            <li className="px-4">
                 <Link to={'/grocery'}>Grocery</Link>
             </li>
-            <li>
+            <li className="px-4">
                 <Link to={'contact'}>Contact Us</Link>
+            </li>
+            <li className="px-4">
+                <Link to={'contact'}>{loggedInUser}</Link>
             </li>
             <button className="login-btn" onClick={() => setIsLogin(!isLogin)}>
                 {isLogin ? 'LogIn' : 'Logout'}
             </button>
         </ul>
+        </div>
     </div>)
 }
 

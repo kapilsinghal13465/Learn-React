@@ -7,6 +7,7 @@ import About from "./components/About";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext.js";
 // import Grocery from "./components/Grocery";
 
 // Chunking
@@ -18,6 +19,7 @@ const Grocery = lazy(() => import( "./components/Grocery"));
 
 const AppLayout = () => {
   return (
+    <UserContext value={{loggedInUser: "Kapil Singhal"}}>
     <div className="app-container">
 
       <Header />
@@ -31,6 +33,7 @@ const AppLayout = () => {
       <ContactUs /> */}
       
     </div>
+    </UserContext>
   );
 };
 

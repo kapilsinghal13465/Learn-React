@@ -33,14 +33,16 @@ const ResContainer = () => {
     <ShimCard />
   ) : (
     <>
-      <div className="filter">
-        <div>
+      <div className="filter flex">
+        <div className="m-4 p-4">
           <input
             type="text"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
+          className="px-4 py-2 bg-green-100 mx-4 rounded"
             onClick={() => {
               const filteredList = resCards.filter((card) =>
                 card?.info?.name
@@ -53,8 +55,9 @@ const ResContainer = () => {
             Search
           </button>
         </div>
+        <div className="m-4 p-4">
         <button
-          className="filter-btn"
+          className="px-4 py-2 bg-gray-100 mx-4 rounded"
           onClick={() => {
             const filteredList = resCards.filter(
               (card) => card?.info?.avgRatingString > 4.2,
@@ -64,9 +67,10 @@ const ResContainer = () => {
         >
           Top Rating Restaurant
         </button>
+        </div>
       </div>
 
-      <div className="res-container">
+      <div className="res-container flex flex-wrap">
         {filterResCards.map((card) => {
           const {
             name,
