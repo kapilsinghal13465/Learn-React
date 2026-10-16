@@ -1,0 +1,13 @@
+Write Data
+Add -> Dispatch (action) -> reducer function -> Cart Slice
+
+Read Data
+selector
+
+#Redux Toolkit
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- connect store to our app
+- Slice (cartSlice)
+- Dispatch(action)
+- Selector

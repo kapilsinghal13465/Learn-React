@@ -8,6 +8,9 @@ import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext.js";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore.js";
+import Cart from "./components/Cart.js";
 // import Grocery from "./components/Grocery";
 
 // Chunking
@@ -15,59 +18,66 @@ import UserContext from "./utils/UserContext.js";
 //  Dynalic bundling
 // Code Spliting
 // on demand loading
-const Grocery = lazy(() => import( "./components/Grocery"));
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
   return (
-    <UserContext value={{loggedInUser: "Kapil Singhal"}}>
-    <div className="app-container">
+    <Provider store={appStore}>
+      <UserContext value={{ loggedInUser: "Kapil Singhal" }}>
+        <div className="app-container">
+          <Header />
 
-      <Header />
+          <Outlet />
 
-      <Outlet />
-
-      {/* <Body />
+          {/* <Body />
 
       <About />
 
       <ContactUs /> */}
-      
-    </div>
-    </UserContext>
+        </div>
+      </UserContext>
+    </Provider>
   );
 };
 
 const appRouter = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <AppLayout />,
     children: [
       {
-    path: '/',
-    element: <Body />
-  },
-{
-    path: '/about',
-    element: <About />
-  },
-  {
-    path: '/grocery',
-    element: <Suspense fallback={<>loading...</>}><Grocery /></Suspense>
-  },
-   {
-    path: '/contact',
-    element: <ContactUs />
-  },
-  {
-    path: '/restaurants/:resId',
-    element: <RestaurantMenu />
-  }
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<>loading...</>}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
+      },
     ],
-    errorElement: <Error />
-  }
-])
+    errorElement: <Error />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<RouterProvider router={appRouter}/>);
-
+root.render(<RouterProvider router={appRouter} />);
