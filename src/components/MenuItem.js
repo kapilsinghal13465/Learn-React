@@ -1,17 +1,12 @@
-const MenuItem = ({ resMenuData }) => {
-  console.log("resMenuData", resMenuData);
-
+const MenuItem = ({ menuItem }) => {
+  console.log("menuItem", menuItem);
+  const cardInfo = menuItem?.card?.info;
   return (
     <>
-      {resMenuData && resMenuData?.card.card?.itemCards.map((menuItem) => {
-        const menu = menuItem.card.info;
-        return (
-          <div key={menu.id}>
-            <h4>*{menu.name + " - " + menu.price}</h4>
-            <div>{"\b" + menu.description + " " + menu.category}</div>
-          </div>
-        );
-      })}
+      <div key={cardInfo.id} className="p-5 text-left">
+        <h4 className="py-3 text-2xl">*{cardInfo.name + " - " + cardInfo.price}</h4>
+        <div>{ cardInfo.description + " " + cardInfo.category}</div>
+      </div>
     </>
   );
 };

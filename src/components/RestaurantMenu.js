@@ -34,16 +34,24 @@ const RestaurantMenu = () => {
                 {menudata?.card?.card && (
                   <div>
                     <h3>{"---" + menudata.card.card?.title + "---"}</h3>
-                    <MenuItem resMenuData={menudata} />
-                    <button
-                      className="button m-1 p-1 bg-blue-400 cursor-pointer"
-                      onClick={() => handleAddItem(menudata)}
-                    >
-                      +Add
-                    </button>
-                    <br />
+                    {menudata &&
+                      menudata?.card.card?.itemCards.map((menuItem) => {
+                        return (
+                          <div>
+                            <MenuItem menuItem={menuItem} />
+                            <button
+                              className="button m-1 p-1 bg-blue-400 cursor-pointer"
+                              onClick={() => handleAddItem(menuItem)}
+                            >
+                              +Add
+                            </button>
+                            <br />
+                          </div>
+                        );
+                      })}
                   </div>
                 )}
+                )
               </div>
             );
           })}

@@ -7,7 +7,13 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-        // mutating the state
+      // Vanila(older) Redux => Don't Mutate STATE and return was mandatory
+      // const newState = [...state];
+      // newState.items.push(action.payload);
+      // return newState;
+
+      // Redux Toolkit
+      // we Have to mutate the state
       state.items.push(action.payload);
     },
     removeItem: (state, action) => {
@@ -15,6 +21,9 @@ const cartSlice = createSlice({
     },
     clearCart: (state) => {
       state.items.length = 0;
+
+      // RTK(Redux Toolkit) - either mutate the state or return a new state
+      // return {items: []}
     },
   },
 });
